@@ -12,13 +12,11 @@ body {
   background: radial-gradient(circle at top, #1a0000, #000);
   color: white;
   text-align: center;
-  overflow-x: hidden;
 }
 
 h1 {
   margin-top: 40px;
   font-size: 3em;
-  letter-spacing: 2px;
 }
 
 .subtitle {
@@ -60,6 +58,7 @@ h1 {
 
 .card:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 20px crimson;
 }
 
 .card img {
@@ -78,7 +77,6 @@ h1 {
   padding: 0 10px 15px;
 }
 
-/* Theory Box */
 .theory {
   margin: 50px auto;
   max-width: 800px;
@@ -88,9 +86,18 @@ h1 {
   line-height: 1.6;
 }
 
-/* Glow effect */
-.card:hover {
-  box-shadow: 0 0 20px crimson;
+button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: crimson;
 }
 </style>
 </head>
@@ -141,80 +148,39 @@ Many fans believe she may represent a pearl — but it is never confirmed.
 </p>
 <p>
 Perhaps this is intentional. While others are defined by jewels,  
-Rishu stands apart. Her title as "the virtuous one" might symbolize humility.
+Rishu stands apart.
 </p>
 <p>
-Instead of a shining gem, she represents something softer, quieter —  
-a beauty that does not seek attention.
+As "the virtuous one", she may symbolize humility —  
+a beauty that does not need to shine to be valuable.
 </p>
 </div>
 
-<script>
-function setLang(lang) {
-  if (lang === "de") {
-    document.getElementById("subtitle").innerText = "Die Gemahlinnen & ihre Symbole";
-    document.getElementById("theory").innerHTML = `
-      <h2>Die Theorie</h2>
-      <p>
-      Rishu ist die einzige Gemahlin ohne eindeutig benannten Edelstein.  
-      Viele Fans vermuten, dass es eine Perle sein könnte – aber bestätigt ist es nicht.
-      </p>
-      <p>
-      Vielleicht ist das Absicht. Während die anderen durch Edelsteine definiert sind,  
-      steht Rishu für etwas anderes.
-      </p>
-      <p>
-      Als „die Tugendhafte“ könnte sie Bescheidenheit symbolisieren –  
-      eine Schönheit, die nicht glänzen muss, um wertvoll zu sein.
-      </p>
-    `;
-  } else {
-    document.getElementById("subtitle").innerText = "The Imperial Consorts & Their Symbols";
-    document.getElementById("theory").innerHTML = `
-      <h2>The Theory</h2>
-      <p>
-      Rishu is the only consort without a clearly named gemstone.  
-      Many fans believe she may represent a pearl — but it is never confirmed.
-      </p>
-      <p>
-      Perhaps this is intentional. While others are defined by jewels,  
-      Rishu stands apart.
-      </p>
-      <p>
-      As "the virtuous one", she may symbolize humility —  
-      a beauty that does not need to shine to be valuable.
-      </p>
-    `;
-  }
-}
+<div class="theory">
+<h2>Which Residence Do You Belong To?</h2>
 
-  <div class="theory">
-  <h2>Which Residence Do You Belong To?</h2>
-  <div id="quiz">
+<p>1. What describes you best?</p>
+<button onclick="answer('gyokuyo')">Leadership</button>
+<button onclick="answer('rifa')">Elegance</button>
+<button onclick="answer('rishu')">Kindness</button>
+<button onclick="answer('aduo')">Mystery</button>
 
-    <p>1. What trait describes you best?</p>
-    <button onclick="answer('gyokuyo')">Leadership</button>
-    <button onclick="answer('rifa')">Elegance</button>
-    <button onclick="answer('rishu')">Kindness</button>
-    <button onclick="answer('aduo')">Mystery</button>
+<p>2. What do you value most?</p>
+<button onclick="answer('gyokuyo')">Power</button>
+<button onclick="answer('rifa')">Beauty</button>
+<button onclick="answer('rishu')">Peace</button>
+<button onclick="answer('aduo')">Independence</button>
 
-    <p>2. What do you value most?</p>
-    <button onclick="answer('gyokuyo')">Power</button>
-    <button onclick="answer('rifa')">Beauty</button>
-    <button onclick="answer('rishu')">Peace</button>
-    <button onclick="answer('aduo')">Independence</button>
+<p>3. How do others see you?</p>
+<button onclick="answer('gyokuyo')">Strong</button>
+<button onclick="answer('rifa')">Graceful</button>
+<button onclick="answer('rishu')">Gentle</button>
+<button onclick="answer('aduo')">Distant</button>
 
-    <p>3. How do others see you?</p>
-    <button onclick="answer('gyokuyo')">Strong</button>
-    <button onclick="answer('rifa')">Graceful</button>
-    <button onclick="answer('rishu')">Gentle</button>
-    <button onclick="answer('aduo')">Distant</button>
+<br><br>
+<button onclick="showResult()">See Result</button>
 
-    <br><br>
-    <button onclick="showResult()">See Result</button>
-
-    <h3 id="result"></h3>
-  </div>
+<h3 id="result"></h3>
 </div>
 
 <script>
@@ -241,8 +207,27 @@ function showResult() {
 
   document.getElementById("result").innerText = text;
 }
-</script>
-  
+
+function setLang(lang) {
+  if (lang === "de") {
+    document.getElementById("subtitle").innerText = "Die Gemahlinnen & ihre Symbole";
+    document.getElementById("theory").innerHTML = `
+      <h2>Die Theorie</h2>
+      <p>
+      Rishu ist die einzige Gemahlin ohne benannten Edelstein.
+      Viele glauben, es könnte eine Perle sein – sicher ist es nicht.
+      </p>
+      <p>
+      Vielleicht steht das für ihre Bescheidenheit.
+      </p>
+      <p>
+      Als „die Tugendhafte“ symbolisiert sie eine stille, wertvolle Schönheit.
+      </p>
+    `;
+  } else {
+    document.getElementById("subtitle").innerText = "The Imperial Consorts & Their Symbols";
+  }
+}
 </script>
 
 </body>
