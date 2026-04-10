@@ -2,39 +2,44 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ShaoLog</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #0a0a0a, #1a0000);
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #1a0000, #000);
   color: white;
   text-align: center;
-}
-
-.lang {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-}
-
-.lang button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
+  overflow-x: hidden;
 }
 
 h1 {
   margin-top: 40px;
   font-size: 3em;
+  letter-spacing: 2px;
 }
 
 .subtitle {
-  color: #ccc;
-  margin-bottom: 40px;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.lang {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+}
+
+.lang button {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 8px;
 }
 
 .container {
@@ -44,5 +49,145 @@ h1 {
 }
 
 .card {
-  width: 250px;
-  margin: 
+  width: 260px;
+  margin: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card h2 {
+  margin: 10px 0 5px;
+}
+
+.card p {
+  font-size: 0.9em;
+  color: #ccc;
+  padding: 0 10px 15px;
+}
+
+/* Theory Box */
+.theory {
+  margin: 50px auto;
+  max-width: 800px;
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 15px;
+  line-height: 1.6;
+}
+
+/* Glow effect */
+.card:hover {
+  box-shadow: 0 0 20px crimson;
+}
+</style>
+</head>
+
+<body>
+
+<div class="lang">
+  <button onclick="setLang('en')">EN</button>
+  <button onclick="setLang('de')">DE</button>
+</div>
+
+<h1>ShaoLog</h1>
+<p class="subtitle" id="subtitle">The Imperial Consorts & Their Symbols</p>
+
+<div class="container">
+
+  <div class="card">
+    <img src="images/gyokuyo.jpg">
+    <h2>Gyokuyo</h2>
+    <p>Elegant and powerful, associated with a precious gem.</p>
+  </div>
+
+  <div class="card">
+    <img src="images/rifa.jpg">
+    <h2>Rifa</h2>
+    <p>Refined and noble, representing beauty and grace.</p>
+  </div>
+
+  <div class="card">
+    <img src="images/rishu.jpg">
+    <h2>Rishu</h2>
+    <p>The only consort without a named gem.</p>
+  </div>
+
+  <div class="card">
+    <img src="images/aduo.jpg">
+    <h2>Aduo</h2>
+    <p>Mysterious and quiet, yet deeply significant.</p>
+  </div>
+
+</div>
+
+<div class="theory" id="theory">
+<h2>The Theory</h2>
+<p>
+Rishu is the only consort without a clearly named gemstone.  
+Many fans believe she may represent a pearl — but it is never confirmed.
+</p>
+<p>
+Perhaps this is intentional. While others are defined by jewels,  
+Rishu stands apart. Her title as "the virtuous one" might symbolize humility.
+</p>
+<p>
+Instead of a shining gem, she represents something softer, quieter —  
+a beauty that does not seek attention.
+</p>
+</div>
+
+<script>
+function setLang(lang) {
+  if (lang === "de") {
+    document.getElementById("subtitle").innerText = "Die Gemahlinnen & ihre Symbole";
+    document.getElementById("theory").innerHTML = `
+      <h2>Die Theorie</h2>
+      <p>
+      Rishu ist die einzige Gemahlin ohne eindeutig benannten Edelstein.  
+      Viele Fans vermuten, dass es eine Perle sein könnte – aber bestätigt ist es nicht.
+      </p>
+      <p>
+      Vielleicht ist das Absicht. Während die anderen durch Edelsteine definiert sind,  
+      steht Rishu für etwas anderes.
+      </p>
+      <p>
+      Als „die Tugendhafte“ könnte sie Bescheidenheit symbolisieren –  
+      eine Schönheit, die nicht glänzen muss, um wertvoll zu sein.
+      </p>
+    `;
+  } else {
+    document.getElementById("subtitle").innerText = "The Imperial Consorts & Their Symbols";
+    document.getElementById("theory").innerHTML = `
+      <h2>The Theory</h2>
+      <p>
+      Rishu is the only consort without a clearly named gemstone.  
+      Many fans believe she may represent a pearl — but it is never confirmed.
+      </p>
+      <p>
+      Perhaps this is intentional. While others are defined by jewels,  
+      Rishu stands apart.
+      </p>
+      <p>
+      As "the virtuous one", she may symbolize humility —  
+      a beauty that does not need to shine to be valuable.
+      </p>
+    `;
+  }
+}
+</script>
+
+</body>
+</html>
