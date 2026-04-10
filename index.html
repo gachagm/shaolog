@@ -187,6 +187,62 @@ function setLang(lang) {
     `;
   }
 }
+
+  <div class="theory">
+  <h2>Which Residence Do You Belong To?</h2>
+  <div id="quiz">
+
+    <p>1. What trait describes you best?</p>
+    <button onclick="answer('gyokuyo')">Leadership</button>
+    <button onclick="answer('rifa')">Elegance</button>
+    <button onclick="answer('rishu')">Kindness</button>
+    <button onclick="answer('aduo')">Mystery</button>
+
+    <p>2. What do you value most?</p>
+    <button onclick="answer('gyokuyo')">Power</button>
+    <button onclick="answer('rifa')">Beauty</button>
+    <button onclick="answer('rishu')">Peace</button>
+    <button onclick="answer('aduo')">Independence</button>
+
+    <p>3. How do others see you?</p>
+    <button onclick="answer('gyokuyo')">Strong</button>
+    <button onclick="answer('rifa')">Graceful</button>
+    <button onclick="answer('rishu')">Gentle</button>
+    <button onclick="answer('aduo')">Distant</button>
+
+    <br><br>
+    <button onclick="showResult()">See Result</button>
+
+    <h3 id="result"></h3>
+  </div>
+</div>
+
+<script>
+let scores = {
+  gyokuyo: 0,
+  rifa: 0,
+  rishu: 0,
+  aduo: 0
+};
+
+function answer(type) {
+  scores[type]++;
+}
+
+function showResult() {
+  let max = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+  let text = "";
+
+  if (max === "gyokuyo") text = "You belong to Gyokuyo's Residence 👑";
+  if (max === "rifa") text = "You belong to Rifa's Residence 💎";
+  if (max === "rishu") text = "You belong to Rishu's Residence 🌸";
+  if (max === "aduo") text = "You belong to Aduo's Residence 🌑";
+
+  document.getElementById("result").innerText = text;
+}
+</script>
+  
 </script>
 
 </body>
